@@ -1,6 +1,7 @@
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
+import { Accordion, type AccordionItem } from "@/components/ui/Accordion";
 
 const REGRAS = [
   { titulo: "Desconto por período", texto: "3–6 diárias: 5% · 7–13: 10% · 14–29: 15% · 30+: 20%." },
@@ -9,6 +10,39 @@ const REGRAS = [
   { titulo: "Alta temporada", texto: "Dezembro a fevereiro e feriados prolongados: +20% sobre as diárias." },
   { titulo: "Cancelamento", texto: ">7 dias: 100% · 3–7 dias: 70% · <3 dias: 40% · no-show: sem reembolso." },
   { titulo: "Combustível", texto: "Moto sai e volta com tanque cheio. Senão, cobramos o combustível + taxa." },
+];
+
+const FAQ: AccordionItem[] = [
+  {
+    question: "Quais documentos preciso apresentar?",
+    answer:
+      "CNH válida na categoria correta e um documento de identificação. No cadastro pedimos nome, e-mail, telefone, CPF e CNH — os documentos são conferidos no momento da retirada.",
+  },
+  {
+    question: "Como funciona a caução?",
+    answer:
+      "É um bloqueio no cartão (não uma cobrança), com valor entre R$ 600 e R$ 1.500 dependendo da categoria da moto. É liberado após a devolução, se estiver tudo certo.",
+  },
+  {
+    question: "O que acontece se eu atrasar a devolução?",
+    answer:
+      "Até 2h de atraso não cobramos nada. Entre 2h e 24h, cobramos 1 diária extra + taxa de R$ 50. Acima de 24h, diária extra + R$ 80 por dia de atraso. Após 72h sem contato, tratamos como apropriação indébita e acionamos medidas legais.",
+  },
+  {
+    question: "Posso pedir entrega em vez de retirar na loja?",
+    answer:
+      "Sim — a entrega/coleta custa entre R$ 50 e R$ 120, dependendo da distância, e aparece como item separado no seu orçamento.",
+  },
+  {
+    question: "Como funciona o pagamento?",
+    answer:
+      "Você escolhe entre pagar na retirada ou pagar online no momento da reserva (com taxa de processamento de R$ 15 para pagamento online).",
+  },
+  {
+    question: "Preciso devolver com tanque cheio?",
+    answer:
+      "Sim — a moto sai e deve voltar com o tanque cheio. Se não devolver assim, cobramos o valor do combustível faltante + taxa de R$ 35.",
+  },
 ];
 
 export default function ComoFuncionaPage() {
@@ -40,6 +74,14 @@ export default function ComoFuncionaPage() {
             </Reveal>
           ))}
         </div>
+
+      </section>
+
+      <section className="mx-auto max-w-4xl px-5 py-16 md:px-8 md:py-24">
+        <h2 className="mb-10 font-display text-4xl leading-none text-hava-white md:text-5xl">
+          PERGUNTAS <span className="text-hava-orange">FREQUENTES</span>
+        </h2>
+        <Accordion items={FAQ} />
 
         <div className="mt-12 flex justify-center">
           <Button href="/motos">Ver catálogo de motos</Button>

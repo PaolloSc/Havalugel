@@ -9,7 +9,7 @@ import { formatBRL } from "@/lib/format";
 export function MotoCard({ moto }: { moto: Moto }) {
   return (
     <Link href={`/motos/${moto.slug}`} className="group block">
-      <Card className="relative overflow-hidden p-5 transition-colors duration-200 group-hover:border-hava-orange">
+      <Card className="relative overflow-hidden p-5 transition-[transform,border-color] duration-300 ease-out group-hover:-translate-y-1.5 group-hover:border-hava-orange">
         <div className="hava-glow absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-70" />
 
         <div className="mb-1 flex items-start justify-between">

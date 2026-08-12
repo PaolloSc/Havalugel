@@ -1,6 +1,7 @@
 import { getMotosDestaque } from "@/data/motos";
 import { MotoCard } from "@/components/catalog/MotoCard";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function FeaturedMotos() {
   const motos = getMotosDestaque();
@@ -20,8 +21,10 @@ export function FeaturedMotos() {
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {motos.map((moto) => (
-            <MotoCard key={moto.id} moto={moto} />
+          {motos.map((moto, i) => (
+            <Reveal key={moto.id} delay={i * 90}>
+              <MotoCard moto={moto} />
+            </Reveal>
           ))}
         </div>
       </div>

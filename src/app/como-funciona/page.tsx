@@ -1,5 +1,6 @@
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 
 const REGRAS = [
   { titulo: "Desconto por período", texto: "3–6 diárias: 5% · 7–13: 10% · 14–29: 15% · 30+: 20%." },
@@ -32,11 +33,11 @@ export default function ComoFuncionaPage() {
           REGRAS DO <span className="text-hava-orange">ORÇAMENTO</span>
         </h2>
         <div className="grid gap-px overflow-hidden border border-hava-line bg-hava-line sm:grid-cols-2 lg:grid-cols-3">
-          {REGRAS.map((regra) => (
-            <div key={regra.titulo} className="bg-hava-black-soft p-6">
+          {REGRAS.map((regra, i) => (
+            <Reveal key={regra.titulo} delay={(i % 3) * 90} className="bg-hava-black-soft p-6">
               <h3 className="mb-2 font-display text-xl tracking-tight text-hava-white">{regra.titulo}</h3>
               <p className="text-sm text-hava-gray">{regra.texto}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
 

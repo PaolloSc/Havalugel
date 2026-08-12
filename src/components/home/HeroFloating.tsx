@@ -3,6 +3,7 @@
 import { Bike, KeyRound, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { MotoSilhouette } from "@/components/ui/MotoSilhouette";
+import { Reveal } from "@/components/ui/Reveal";
 import { useParallax } from "@/hooks/useParallax";
 
 export function HeroFloating() {
@@ -14,45 +15,55 @@ export function HeroFloating() {
 
       <div className="mx-auto grid max-w-7xl gap-10 px-5 pb-16 pt-14 md:grid-cols-2 md:gap-6 md:px-8 md:pb-24 md:pt-20">
         <div className="relative z-10 flex flex-col justify-center">
-          <span className="mb-5 inline-flex w-fit items-center gap-2 border border-hava-orange/60 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-hava-orange">
-            Aluguel de motos · sem burocracia
-          </span>
+          <Reveal>
+            <span className="mb-5 inline-flex w-fit items-center gap-2 border border-hava-orange/60 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-hava-orange">
+              Aluguel de motos · sem burocracia
+            </span>
+          </Reveal>
 
-          <h1 className="font-display text-[15vw] leading-[0.85] tracking-tight text-hava-white sm:text-6xl md:text-7xl">
-            RODE
-            <br />
-            <span className="text-hava-orange">HOJE.</span>
-          </h1>
+          <Reveal delay={80}>
+            <h1 className="font-display text-[15vw] leading-[0.85] tracking-tight text-hava-white sm:text-6xl md:text-7xl">
+              RODE
+              <br />
+              <span className="text-hava-orange">HOJE.</span>
+            </h1>
+          </Reveal>
 
-          <p className="mt-6 max-w-md text-base text-hava-gray md:text-lg">
-            Escolha a moto, monte seu orçamento em tempo real e reserve em minutos.
-            Titan, CG, Fan, Biz e mais — pronta pra retirada.
-          </p>
+          <Reveal delay={160}>
+            <p className="mt-6 max-w-md text-base text-hava-gray md:text-lg">
+              Escolha a moto, monte seu orçamento em tempo real e reserve em minutos.
+              Titan, CG, Fan, Biz e mais — pronta pra retirada.
+            </p>
+          </Reveal>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Button href="/motos">Fazer orçamento</Button>
-            <Button href="/como-funciona" variant="outline">
-              Como funciona
-            </Button>
-          </div>
-
-          <div className="mt-10 flex gap-8 border-t border-hava-line pt-6 font-mono text-xs text-hava-gray">
-            <div>
-              <div className="font-display text-2xl text-hava-white">8+</div>
-              modelos disponíveis
+          <Reveal delay={240}>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button href="/motos">Fazer orçamento</Button>
+              <Button href="/como-funciona" variant="outline">
+                Como funciona
+              </Button>
             </div>
-            <div>
-              <div className="font-display text-2xl text-hava-white">150km</div>
-              franquia por diária
+          </Reveal>
+
+          <Reveal delay={320}>
+            <div className="mt-10 flex gap-8 border-t border-hava-line pt-6 font-mono text-xs text-hava-gray">
+              <div>
+                <div className="font-display text-2xl text-hava-white">8+</div>
+                modelos disponíveis
+              </div>
+              <div>
+                <div className="font-display text-2xl text-hava-white">150km</div>
+                franquia por diária
+              </div>
+              <div>
+                <div className="font-display text-2xl text-hava-white">24/7</div>
+                reserva online
+              </div>
             </div>
-            <div>
-              <div className="font-display text-2xl text-hava-white">24/7</div>
-              reserva online
-            </div>
-          </div>
+          </Reveal>
         </div>
 
-        <div className="relative flex items-center justify-center py-8 md:py-0">
+        <Reveal delay={120} className="relative flex items-center justify-center py-8 md:py-0">
           <div
             data-depth="0.5"
             className="hava-glow absolute h-[340px] w-[340px] rounded-full md:h-[420px] md:w-[420px]"
@@ -72,7 +83,7 @@ export function HeroFloating() {
           <div data-depth="0.9" className="hava-chrome animate-float-slow">
             <MotoSilhouette className="h-40 w-72 md:h-56 md:w-[420px]" tone="orange" />
           </div>
-        </div>
+        </Reveal>
       </div>
 
       <div className="hava-hazard flex h-9 items-center overflow-hidden" aria-hidden="true" />

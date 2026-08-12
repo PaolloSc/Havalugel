@@ -136,6 +136,20 @@ body {
     drop-shadow(0 0 18px rgba(245, 116, 26, 0.35));
 }
 
+/* Scroll/load entrance: fade + rise, eased like a Figma "ease out" spring — see Reveal component */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .clip-corner {
   clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
 }

@@ -1,4 +1,5 @@
 import { Bike, Calculator, CalendarCheck, PackageCheck } from "lucide-react";
+import { Reveal } from "@/components/ui/Reveal";
 
 const STEPS = [
   {
@@ -38,12 +39,12 @@ export function HowItWorks() {
 
         <div className="grid gap-px overflow-hidden border border-hava-line bg-hava-line md:grid-cols-4">
           {STEPS.map((step, i) => (
-            <div key={step.title} className="bg-hava-black-soft p-6 md:p-8">
+            <Reveal key={step.title} delay={i * 100} className="bg-hava-black-soft p-6 md:p-8">
               <span className="font-mono text-xs text-hava-orange">0{i + 1}</span>
               <step.icon className="my-4 text-hava-orange" size={28} strokeWidth={1.5} />
               <h3 className="mb-2 font-display text-xl tracking-tight text-hava-white">{step.title}</h3>
               <p className="text-sm text-hava-gray">{step.text}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

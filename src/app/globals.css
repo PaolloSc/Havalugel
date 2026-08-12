@@ -1,26 +1,136 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --hava-black: #0a0a0a;
+  --hava-black-soft: #141311;
+  --hava-surface: #1b1a17;
+  --hava-surface-2: #232120;
+  --hava-orange: #f5741a;
+  --hava-orange-light: #ff9a4d;
+  --hava-orange-deep: #b4470a;
+  --hava-white: #faf9f6;
+  --hava-cream: #ece7dc;
+  --hava-gray: #948f83;
+  --hava-line: rgba(250, 249, 246, 0.12);
+  --hava-line-strong: rgba(250, 249, 246, 0.22);
+
+  --font-display: var(--font-anton);
+  --font-body: var(--font-manrope);
+  --font-mono: var(--font-plex-mono);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--hava-black);
+  --color-foreground: var(--hava-white);
+
+  --color-hava-black: var(--hava-black);
+  --color-hava-black-soft: var(--hava-black-soft);
+  --color-hava-surface: var(--hava-surface);
+  --color-hava-surface-2: var(--hava-surface-2);
+  --color-hava-orange: var(--hava-orange);
+  --color-hava-orange-light: var(--hava-orange-light);
+  --color-hava-orange-deep: var(--hava-orange-deep);
+  --color-hava-white: var(--hava-white);
+  --color-hava-cream: var(--hava-cream);
+  --color-hava-gray: var(--hava-gray);
+  --color-hava-line: var(--hava-line);
+  --color-hava-line-strong: var(--hava-line-strong);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+
+  --animate-float-slow: float 7s ease-in-out infinite;
+  --animate-float-med: float 5.5s ease-in-out infinite;
+  --animate-float-fast: float 4.2s ease-in-out infinite;
+  --animate-marquee: marquee 26s linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
   }
 }
 
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+* {
+  border-color: var(--hava-line);
+}
+
+html {
+  background: var(--hava-black);
+  color-scheme: dark;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--hava-black);
+  color: var(--hava-white);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--hava-orange);
+  color: var(--hava-black);
+}
+
+/* Grain overlay: fixed, low-opacity, layered above the bg color, below content */
+.hava-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Hazard stripe divider, used sparingly as a section accent */
+.hava-hazard {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--hava-orange) 0,
+    var(--hava-orange) 14px,
+    var(--hava-black) 14px,
+    var(--hava-black) 28px
+  );
+}
+
+.hava-glow {
+  background: radial-gradient(
+    closest-side,
+    color-mix(in oklab, var(--hava-orange) 55%, transparent),
+    transparent 70%
+  );
+  filter: blur(60px);
+}
+
+.clip-corner {
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+}
+
+.clip-corner-sm {
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

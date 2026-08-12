@@ -1,6 +1,6 @@
 "use client";
 
-import { Bike, KeyRound, ShieldCheck } from "lucide-react";
+import { Bike, KeyRound, ShieldCheck, Star } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { MotoSilhouette } from "@/components/ui/MotoSilhouette";
 import { Reveal } from "@/components/ui/Reveal";
@@ -82,6 +82,21 @@ export function HeroFloating() {
 
           <div data-depth="0.9" className="hava-chrome animate-float-slow">
             <MotoSilhouette className="h-40 w-72 md:h-56 md:w-[420px]" tone="orange" />
+          </div>
+
+          <div
+            data-depth="1.1"
+            className="animate-float-med absolute bottom-2 right-2 flex items-center gap-3 border border-hava-line-strong bg-hava-black/70 px-4 py-3 backdrop-blur-sm md:right-6"
+          >
+            <div className="flex items-center gap-1 text-hava-orange">
+              <Star size={16} fill="currentColor" strokeWidth={0} />
+              <span className="font-display text-lg text-hava-white">4.9</span>
+            </div>
+            <div className="h-8 w-px bg-hava-line-strong" />
+            <div className="font-mono text-[11px] leading-tight text-hava-gray">
+              <div className="text-hava-white">+500</div>
+              avaliações
+            </div>
           </div>
         </Reveal>
       </div>

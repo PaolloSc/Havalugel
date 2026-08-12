@@ -10,11 +10,7 @@ export function HeroFloating() {
 
   return (
     <section ref={ref} className="relative overflow-hidden border-b border-hava-line">
-      <div
-        data-depth="0.3"
-        className="hava-glow absolute -top-32 right-[-10%] h-[520px] w-[520px] rounded-full"
-        aria-hidden="true"
-      />
+      <div data-depth="0.15" className="hava-mesh absolute inset-0 opacity-70" aria-hidden="true" />
 
       <div className="mx-auto grid max-w-7xl gap-10 px-5 pb-16 pt-14 md:grid-cols-2 md:gap-6 md:px-8 md:pb-24 md:pt-20">
         <div className="relative z-10 flex flex-col justify-center">
@@ -73,7 +69,7 @@ export function HeroFloating() {
             <Bike size={30} strokeWidth={1.5} />
           </div>
 
-          <div data-depth="0.9" className="animate-float-slow drop-shadow-[0_30px_60px_rgba(245,116,26,0.25)]">
+          <div data-depth="0.9" className="hava-chrome animate-float-slow">
             <MotoSilhouette className="h-40 w-72 md:h-56 md:w-[420px]" tone="orange" />
           </div>
         </div>

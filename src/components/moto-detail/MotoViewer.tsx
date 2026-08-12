@@ -18,7 +18,7 @@ export function MotoViewer({ moto }: { moto: Moto }) {
       <div className="absolute left-5 top-5 z-10">
         <Badge>{moto.categoriaLabel}</Badge>
       </div>
-      <div data-depth="0.8" className="animate-float-slow">
+      <div data-depth="0.8" className="hava-chrome animate-float-slow">
         <MotoSilhouette tone="orange" className="h-40 w-72 md:h-56 md:w-[440px]" />
       </div>
     </div>
